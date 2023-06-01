@@ -1,0 +1,91 @@
+<html>
+<head>
+<body background="tło.jpg">
+<style>
+body {
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+
+h1 {
+  font-family: "Times New Roman", serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: inline-block;
+  text-align: left;
+}
+
+table {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<script type="text/javascript">
+function obliczanie()
+{
+  wynik.innerHTML = " ";
+  var cena_koncowa = 0;
+
+  var zupa = document.querySelector('input[name="zupy"]:checked');
+  if (zupa) {
+    cena_koncowa += parseFloat(zupa.value);
+  }
+
+  var danie_glowne = document.querySelector('input[name="dania_glowne"]:checked');
+  if (danie_glowne) {
+    cena_koncowa += parseFloat(danie_glowne.value);
+  }
+
+  var deser = document.querySelector('input[name="desery"]:checked');
+  if (deser) {
+    cena_koncowa += parseFloat(deser.value);
+  }
+
+  var vat = document.querySelector('select[name="vat"]');
+  if (vat.selectedIndex == 1) {
+    cena_koncowa *= 1.07;
+  }
+  if (vat.selectedIndex == 2) {
+    cena_koncowa *= 1.23;
+  }
+
+  wynik.innerHTML = "Do zapłaty: " + cena_koncowa.toFixed(2) + " zł";
+}
+</script>
+</head>
+<body>
+<h1>Restauracja</h1>
+<form name="formularz">
+<b>Wybierz zupy:</b><br>
+<input type="radio" name="zupy" value="10" /> Pomidorowa - 10 zł<br>
+<input type="radio" name="zupy" value="12" /> Rosołek - 12 zł<br>
+<input type="radio" name="zupy" value="8" /> Zupa dnia - 8 zł<br><br>
+
+<b>Wybierz dania główne:</b><br>
+<input type="radio" name="dania_glowne" value="25" /> Schabowy z frytkami - 25 zł<br>
+<input type="radio" name="dania_glowne" value="30" /> Kurczak w sosie curry - 30 zł<br>
+<input type="radio" name="dania_glowne" value="35" /> Spaghetti Carbonara - 35 zł<br><br>
+
+<b>Wybierz desery:</b><br>
+<input type="radio" name="desery" value="8" /> Lody - 8 zł<br>
+<input type="radio" name="desery" value="10" /> Sernik - 10 zł<br>
+<input type="radio" name="desery" value="12" /> Ciasto czekoladowe - 12 zł<br><br>
+
+<b>Podaj VAT:</b><br>
+wybierz VAT<select name="vat">
+<option value="0"> 0%</option>
+<option value="1"> 7%</option>
+<option value="2"> 23%</option>
+</select><br><br>
+
+<input type="button" value="Oblicz....." onClick="obliczanie()"/><br><br>
+</form>
+<table>
+<tr id="wynik"></tr>
+</table>
+</body>
+</html>
