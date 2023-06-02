@@ -54,6 +54,7 @@ function obliczanie()
   }
 
   wynik.innerHTML = "Do zapłaty: " + cena_koncowa.toFixed(2) + " zł";
+  wynik.innerHTML += imie.name.value;
 }
 </script>
 </head>
@@ -88,9 +89,10 @@ wybierz VAT<select name="vat">
 <tr id="wynik"></tr>
 </table>
   <b>Dane do faktury:</b><br>
+  <form name="imie"> 
             <p>Wpisz swoje imie oraz nazwisko: </p>
             <input type="text" name="name">
-
+  </form>
             <p> Wpisz adres swojej poczty elektronicznej:</p>
             <input type="text" name="email">
 
