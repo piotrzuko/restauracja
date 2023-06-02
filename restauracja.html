@@ -87,5 +87,24 @@ wybierz VAT<select name="vat">
 <table>
 <tr id="wynik"></tr>
 </table>
+  <b>Dane do faktury:</b><br>
+            <p>Wpisz swoje imie oraz nazwisko: </p>
+            <input type="text" name="name">
+
+            <p> Wpisz adres swojej poczty elektronicznej:</p>
+            <input type="text" name="email">
+
+            <p>Wpisz numer PESEL:</p>
+            <input type="text" name="pesel">
+
+
+            <p>Wpisz numer NIP:</p>
+            <input type="text" name="nip"><br><br>
+
+            <input type="button" value="Oblicz....." onClick="obliczanie(this.form)" /><br><br>
+    </form>
+    <table>
+        <tr id="wynik"></tr>
+    </table>
 </body>
 </html>
